@@ -1,0 +1,4 @@
+schema.sql
+go.sum
+.env
+docker-compose.yml
