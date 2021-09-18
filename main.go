@@ -26,7 +26,7 @@ func main() {
 	router := mux.NewRouter()
 	setupRoutesForTareas(router)
 	// Setup and start server
-	port := os.Getenv("PORT")
+	port := ":" + os.Getenv("PORT")
 	if port == "" {
 		port = ":4000"
 	}
