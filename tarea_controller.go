@@ -14,7 +14,7 @@ func deleteTarea(idTarea int) error {
 	if err != nil {
 		return err
 	}
-	_, err = bd.Exec("DELETE FROM Agenda WHERE IdTarea=?", idTarea)
+	_, err = bd.Exec("DELETE FROM Tareas WHERE IdTarea=?", idTarea)
 	return err
 }
 
