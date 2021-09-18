@@ -12,7 +12,7 @@ var (
 		os.Getenv("userBD"),
 		os.Getenv("passBD"),
 		os.Getenv("host"),
-		// os.Getenv("PORT"),
+		// os.Getenv("PORT")
 		os.Getenv("nameBD"),
 	)
 )
