@@ -8,11 +8,11 @@ import (
 // var _ = godotenv.Load(".env")
 
 var (
-	ConnectionString = fmt.Sprintf("%s:%s@tcp(%s:%s)/%s",
+	ConnectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s",
 		os.Getenv("userBD"),
 		os.Getenv("passBD"),
 		os.Getenv("hostBD"),
-		os.Getenv("PORT"),
+		// os.Getenv("PORT"),
 		os.Getenv("nameBD"),
 	)
 )
