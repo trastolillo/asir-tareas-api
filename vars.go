@@ -7,16 +7,17 @@ import (
 
 // var _ = godotenv.Load(".env")
 
+const IsLocal = true
+
 var (
-	ConnectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s",
+	RemoteConnectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s",
 		os.Getenv("userBD"),
 		os.Getenv("passBD"),
 		os.Getenv("hostBD"),
-		// os.Getenv("PORT"),
 		os.Getenv("nameBD"),
 	)
 )
 
-// var ConnectionString = "beac0a503e9041:6b0c0bfd@tcp"
+const LocalConnectionString = "root:root@tcp(localhost:3306)/Agenda"
 
 // const AllowedCORSDomain = "http://localhost"

@@ -3,7 +3,7 @@ create table if not exists Modulos (
   Modulo varchar(200) not null,
   URL varchar(250) not null
 ) engine = InnoDB;
-create table if not exists Agenda (
+create table if not exists Tareas (
   IdTarea int not null auto_increment,
   IdModulo varchar(50) not null,
   URL varchar(255),

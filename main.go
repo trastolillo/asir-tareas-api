@@ -27,6 +27,9 @@ func main() {
 	setupRoutesForTareas(router)
 	// Setup and start server
 	port := os.Getenv("PORT")
+	if port == "" {
+		port = ":4000"
+	}
 	server := &http.Server{
 		Handler: router,
 		Addr:    port,
