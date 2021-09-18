@@ -5,7 +5,7 @@ func createTarea(tarea Tarea) error {
 	if err != nil {
 		return err
 	}
-	_, err = bd.Exec("INSERT INTO Agenda (IdModulo, Unidad, Tipo, FechaLimite) VALUES (?, ?, ?, ?) ", tarea.IdModulo, tarea.Unidad, tarea.Tipo, tarea.FechaLimite)
+	_, err = bd.Exec("INSERT INTO Tareas (IdModulo, Unidad, Tipo, FechaLimite) VALUES (?, ?, ?, ?) ", tarea.IdModulo, tarea.Unidad, tarea.Tipo, tarea.FechaLimite)
 	return err
 }
 
@@ -23,7 +23,7 @@ func updateTarea(tarea Tarea) error {
 	if err != nil {
 		return err
 	}
-	_, err = bd.Exec("UPDATE Agenda SET IdModulo=?, Unidad=?, Tipo=?, FechaLimite=?, FechaTerminado=?", tarea.IdModulo, tarea.Unidad, tarea.Tipo, tarea.FechaLimite, tarea.FechaTerminado)
+	_, err = bd.Exec("UPDATE Tareas SET IdModulo=?, Unidad=?, Tipo=?, FechaLimite=?, FechaTerminado=?", tarea.IdModulo, tarea.Unidad, tarea.Tipo, tarea.FechaLimite, tarea.FechaTerminado)
 	return err
 }
 
@@ -33,7 +33,7 @@ func getTareas() ([]Tarea, error) {
 	if err != nil {
 		return tareas, err
 	}
-	rows, err := bd.Query("SELECT IdTarea, IdModulo, Unidad, Tipo, FechaLimite, FechaTerminado FROM Agenda")
+	rows, err := bd.Query("SELECT IdTarea, IdModulo, Unidad, Tipo, FechaLimite, FechaTerminado FROM Tareas")
 	if err != nil {
 		return tareas, err
 	}
@@ -60,7 +60,7 @@ func getTarea(idTarea int) (Tarea, error) {
 	if err != nil {
 		return tarea, err
 	}
-	row := bd.QueryRow("SELECT IdTarea, IdModulo, Unidad, Tipo, FechaLimite, FechaTerminado FROM Agenda WHERE IdTarea=?", idTarea)
+	row := bd.QueryRow("SELECT IdTarea, IdModulo, Unidad, Tipo, FechaLimite, FechaTerminado FROM Tareas WHERE IdTarea=?", idTarea)
 	err = row.Scan(
 		&tarea.IdTarea,
 		&tarea.IdModulo,
