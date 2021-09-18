@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -25,7 +26,7 @@ func main() {
 	router := mux.NewRouter()
 	setupRoutesForTareas(router)
 	// Setup and start server
-	port := ":8000"
+	port := os.Getenv("PORT")
 	server := &http.Server{
 		Handler: router,
 		Addr:    port,
