@@ -7,7 +7,7 @@ import (
 
 // var _ = godotenv.Load(".env")
 
-const IsLocal = true
+const IsLocal = false
 
 var (
 	RemoteConnectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s",
