@@ -33,7 +33,7 @@ func getTareas() ([]Tarea, error) {
 	if err != nil {
 		return tareas, err
 	}
-	rows, err := bd.Query("SELECT id_modulo, unidad, titulo, tipo, fecha_limite, fecha_terminado FROM Tareas")
+	rows, err := bd.Query("SELECT id_modulo, unidad, titulo, tipo, fecha_limite, fecha_terminado FROM view_tareas")
 	if err != nil {
 		return tareas, err
 	}
