@@ -5,7 +5,7 @@ func createTarea(tarea Tarea) error {
 	if err != nil {
 		return err
 	}
-	_, err = bd.Exec("INSERT INTO Tareas (IdModulo, Unidad, Tipo, FechaLimite) VALUES (?, ?, ?, ?) ", tarea.IdModulo, tarea.Unidad, tarea.Tipo, tarea.FechaLimite)
+	_, err = bd.Exec("INSERT INTO tareas (id_modulo, unidad, tipo, fecha_limite) VALUES (?, ?, ?, ?) ", tarea.IdModulo, tarea.Unidad, tarea.Tipo, tarea.FechaLimite)
 	return err
 }
 
@@ -14,7 +14,7 @@ func deleteTarea(idTarea int) error {
 	if err != nil {
 		return err
 	}
-	_, err = bd.Exec("DELETE FROM Tareas WHERE IdTarea=?", idTarea)
+	_, err = bd.Exec("DELETE FROM tareas WHERE IdTarea=?", idTarea)
 	return err
 }
 
@@ -33,16 +33,16 @@ func getTareas() ([]Tarea, error) {
 	if err != nil {
 		return tareas, err
 	}
-	rows, err := bd.Query("SELECT IdTarea, IdModulo, Unidad, Tipo, FechaLimite, FechaTerminado FROM Tareas")
+	rows, err := bd.Query("SELECT id_modulo, unidad, titulo, tipo, fecha_limite, fecha_terminado FROM Tareas")
 	if err != nil {
 		return tareas, err
 	}
 	for rows.Next() {
 		var tarea Tarea
 		err = rows.Scan(
-			&tarea.IdTarea,
 			&tarea.IdModulo,
 			&tarea.Unidad,
+			&tarea.Titulo,
 			&tarea.Tipo,
 			&tarea.FechaLimite,
 			&tarea.FechaTerminado)
